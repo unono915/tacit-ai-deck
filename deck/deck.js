@@ -70,7 +70,7 @@
     if (!ch) return;
     var h = document.createElement('div');
     h.className = 'hdr';
-    h.innerHTML = '<div class="crumb"><span class="dot" style="--c:' + (s.getAttribute('data-cc') || 'var(--orange)') + '"></span>TACIT KNOWLEDGE × AI &nbsp;/&nbsp; ' + ch + '</div>' +
+    h.innerHTML = '<div class="crumb"><span class="dot" style="--c:' + (s.getAttribute('data-cc') || 'var(--orange)') + '"></span>' + (document.body.getAttribute('data-brand') || 'TACIT KNOWLEDGE × AI') + ' &nbsp;/&nbsp; ' + ch + '</div>' +
       '<button class="tomap" data-go="map" aria-label="목차로 이동">≡ 목차 (M)</button>';
     s.insertBefore(h, s.firstChild);
   });
@@ -121,6 +121,9 @@
     s.querySelectorAll('[data-step]').forEach(function (e) {
       e.classList.toggle('on', +e.getAttribute('data-step') <= step);
     });
+    s.querySelectorAll('[data-only]').forEach(function (e) {
+      e.classList.toggle('only-on', e.getAttribute('data-only').split(',').indexOf(String(step)) > -1);
+    });
     var hk = s.getAttribute('data-scene');
     if (hk && hooks[hk]) hooks[hk](s, step);
     counter.textContent = String(cur + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0') + (maxSteps[cur] ? '  ·  ' + step + '/' + maxSteps[cur] : '');
@@ -136,8 +139,17 @@
     cur = i; step = st == null ? 0 : st;
     render(entering);
   }
-  function next() { if (step < maxSteps[cur]) { step++; render(false); } else if (cur < slides.length - 1) go(cur + 1, 0); }
-  function prev() { if (step > 0) { step--; render(false); } else if (cur > 0) go(cur - 1, maxSteps[cur - 1]); }
+  var nextUrl = document.body.getAttribute('data-next'), prevUrl = document.body.getAttribute('data-prev');
+  function next() {
+    if (step < maxSteps[cur]) { step++; render(false); }
+    else if (cur < slides.length - 1) go(cur + 1, 0);
+    else if (nextUrl) location.href = nextUrl;
+  }
+  function prev() {
+    if (step > 0) { step--; render(false); }
+    else if (cur > 0) go(cur - 1, maxSteps[cur - 1]);
+    else if (prevUrl) location.href = prevUrl;
+  }
 
   /* ---------- scaling ---------- */
   var stage = document.getElementById('stage');
@@ -152,6 +164,7 @@
   document.addEventListener('keydown', function (e) {
     if (isTyping(e) || e.metaKey || e.ctrlKey || e.altKey) return;
     var k = e.key;
+    if (e.target.closest && e.target.closest('button,a') && (k === ' ' || k === 'Enter')) return;
     if (k === 'ArrowRight' || k === ' ' || k === 'PageDown' || k === 'Enter') { e.preventDefault(); next(); }
     else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); prev(); }
     else if (k === 'Home') go(0);
@@ -162,6 +175,24 @@
     else if (k === 'f' || k === 'F') toggleFull();
   });
   document.addEventListener('click', function (e) {
+    var tb = e.target.closest('[data-tab]');
+    if (tb) {
+      var box = tb.closest('[data-tabs]');
+      box.querySelectorAll('[data-tab]').forEach(function (b) { b.setAttribute('aria-selected', b === tb ? 'true' : 'false'); });
+      box.querySelectorAll('[data-pane]').forEach(function (p) { p.hidden = p.getAttribute('data-pane') !== tb.getAttribute('data-tab'); });
+      return;
+    }
+    var cp = e.target.closest('[data-copy]');
+    if (cp) {
+      var src = document.getElementById(cp.getAttribute('data-copy'));
+      var vis = src && src.querySelector('[data-pane]:not([hidden]) pre');
+      var txt = (vis || src).innerText.trim();
+      var done = function () { var o = cp.textContent; cp.textContent = '✓ 복사됨'; setTimeout(function () { cp.textContent = o; }, 1400); };
+      if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, done); else done();
+      return;
+    }
+    var ck = e.target.closest('[data-check]');
+    if (ck) { ck.setAttribute('aria-pressed', ck.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); return; }
     var g = e.target.closest('[data-go]');
     if (g) {
       e.preventDefault();
@@ -205,6 +236,11 @@
   }
 
   window.deck = { go: function (n, st) { go(n - 1, st == null ? maxSteps[n - 1] : st); }, count: slides.length };
+
+  window.addEventListener('hashchange', function () {
+    var n = parseInt((location.hash || '').slice(1), 10);
+    if (n >= 1 && n <= slides.length && n - 1 !== cur) go(n - 1, 0);
+  });
 
   var h = parseInt((location.hash || '').slice(1), 10);
   cur = (h >= 1 && h <= slides.length) ? h - 1 : 0;
