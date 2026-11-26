@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>암묵지 AI — 말할 수 없는 지식을 AI가 배울 수 있을까</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;700&family=Rubik:wght@800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+<div class="frame"><main class="stage" id="stage">
+
+<!-- ===================== 01 COVER ===================== -->
+<section class="slide dark cover" aria-label="표지">
+  <div class="word" aria-hidden="true"><span class="rise" style="--d:0">T</span><span class="rise" style="--d:1">A</span><span class="rise" style="--d:2">C</span><span class="rise" style="--d:3">I</span><span class="rise" style="--d:4">T</span></div>
+  <div class="card pop" style="--d:6">DATE&nbsp;&nbsp;: 2026.11.26<br>TOPIC : 암묵지 AI<br>FORM&nbsp;&nbsp;: ISSUE BRIEF</div>
+  <div class="title rise" style="--d:5">
+    <h1>말할 수 없는 지식을,<br><span class="hl">AI가 배울 수 있을까?</span></h1>
+    <p>LLM은 문서에 남은 명시지를 배웠다. 그런데 현장의 성과를 가르는 판단·감·타이밍은 문서에 없다.</p>
+  </div>
+  <div class="m ambient bob" data-mascot="cream"></div>
+  <div class="ticker"><div class="track ambient marquee">
+    <span>WE CAN KNOW MORE THAN WE CAN TELL ●</span><span>우리는 말할 수 있는 것보다 더 많이 안다 ●</span><span>SHOW, DON'T TELL ●</span><span>WE CAN KNOW MORE THAN WE CAN TELL ●</span><span>우리는 말할 수 있는 것보다 더 많이 안다 ●</span><span>SHOW, DON'T TELL ●</span>
+  </div></div>
+  <aside class="notes"><p><b>여는 말 (1분)</b> — “오늘은 ‘말로 할 수 없는 지식’ 이야기입니다. 자전거 타는 법을 글로만 배울 수 있을까요?”</p><p>캐릭터 ‘무언이’는 입이 없는 말풍선입니다. 알지만 말하지 못하는 지식을 상징합니다.</p><p>→ / Space 로 진행, M 목차, N 노트, P 모션 정지.</p></aside>
+</section>
+
+<!-- ===================== 02 MAP ===================== -->
+<section class="slide" id="map" data-ch="INDEX" data-cc="var(--ink)" aria-label="목차">
+  <div class="kicker rise">INDEX — 타일을 누르면 해당 챕터로 이동합니다</div>
+  <h2 class="h2 rise" style="--d:1">오늘의 지도</h2>
+  <div class="map-grid">
+    <button class="tile rise" style="--d:2;background:var(--green)" data-go="6"><span class="num">01 · CONCEPT</span><span data-icon="book"></span><span class="nm">개념</span><span class="ds">명시지 vs 암묵지, SECI</span><span class="pg">p.06</span></button>
+    <button class="tile rise" style="--d:3;background:var(--orange)" data-go="9"><span class="num">02 · WHY NOW</span><span data-icon="drop"></span><span class="nm">왜 지금</span><span class="ds">LLM의 네 가지 한계</span><span class="pg">p.09</span></button>
+    <button class="tile rise" style="--d:4;background:var(--yellow)" data-go="12"><span class="num">03 · CASES</span><span data-icon="hand"></span><span class="nm">사례</span><span class="ds">도요타·참치·도예·용접</span><span class="pg">p.12</span></button>
+    <button class="tile rise" style="--d:5;background:var(--sky)" data-go="17"><span class="num">04 · VOICES</span><span data-icon="quote"></span><span class="nm">발언</span><span class="ds">나델라·김준하·Autor</span><span class="pg">p.17</span></button>
+    <button class="tile rise" style="--d:6;background:var(--plum);color:var(--cream)" data-go="19"><span class="num">05 · CRITIQUE</span><span data-icon="warn"></span><span class="nm">비판</span><span class="ds">‘캡처’라는 말을 의심하기</span><span class="pg">p.19</span></button>
+    <button class="tile rise" style="--d:7;background:var(--blue);color:var(--cream)" data-go="22"><span class="num">06 · CLASSROOM</span><span data-icon="board"></span><span class="nm">교실</span><span class="ds">교사의 암묵지와 AI</span><span class="pg">p.22</span></button>
+    <button class="tile rise" style="--d:8;background:var(--sage)" data-go="25"><span class="num">07 · WRAP-UP</span><span data-icon="flag"></span><span class="nm">정리</span><span class="ds">영상 가이드 · 미확인 · 요약</span><span class="pg">p.25</span></button>
+    <button class="tile rise" style="--d:9;background:var(--ink);color:var(--cream)" data-go="3"><span class="num">00 · START</span><span style="position:absolute;top:14px;right:18px;width:96px" data-mascot="cream"></span><span class="nm">처음부터</span><span class="ds">읽는 법 · 폴라니 · 숫자</span><span class="pg">p.03</span></button>
+  </div>
+  <aside class="notes"><p>목차는 언제든 <b>M</b> 키나 상단 ‘≡ 목차’ 버튼으로 돌아올 수 있습니다. 질의응답 때 원하는 챕터로 바로 점프하세요.</p></aside>
+</section>
+
+<!-- ===================== 03 THREE LAYERS ===================== -->
+<section class="slide" data-ch="00 읽는 법" data-cc="var(--ink)" aria-label="세 층위">
+  <div class="kicker rise">HOW TO READ</div>
+  <h2 class="h2 rise" style="--d:1">먼저, <span class="hl">세 층위</span>를 섞지 마세요</h2>
+  <p class="lead rise" style="--d:2;margin-top:14px">‘암묵지 AI’는 아직 표준 학술 용어가 아닙니다. 같은 말이 세 가지 다른 것을 가리킵니다.</p>
+  <div class="vcards tall" style="grid-template-columns:repeat(3,1fr);margin-top:30px">
+    <div class="vcard" data-step="1"><span class="no">01</span><span class="lab">IDEA</span><div data-icon="book"></div><h3>철학·경영학의 개념</h3><p>폴라니의 ‘말할 수 없는 앎’, 노나카의 SECI 지식경영 모델.</p></div>
+    <div class="vcard" data-step="2"><span class="no">02</span><span class="lab">PRODUCT</span><div data-icon="tag"></div><h3>기업 제품·마케팅 카테고리</h3><p>전문가 노하우를 SOP·플레이북으로 바꾼다는 지식 플랫폼들.</p></div>
+    <div class="vcard" data-step="3"><span class="no">03</span><span class="lab">LEARNING</span><div data-icon="robot"></div><h3>기계학습의 문제</h3><p>로봇이 시범·영상·센서 데이터로 ‘하는 법’을 배우는 기술.</p></div>
+  </div>
+  <div class="foot" data-step="4" style="margin-top:26px"><span class="mono" style="font-size:16px;letter-spacing:.1em">이 발표의 출처 표기 →</span><span class="chip v-res">연구</span><span class="chip v-news">보도</span><span class="chip v-self">회사 발표</span><span class="chip v-unk">미확인</span></div>
+  <aside class="notes"><p>이 발표 전체에서 가장 중요한 안전장치입니다. “암묵지 AI”라는 말을 들으면 <b>지금 어느 층위 이야기인지</b>부터 묻게 하세요.</p><p>칩 네 가지는 이후 모든 수치·사례 옆에 붙습니다. 특히 노란 ‘회사 발표’는 독립 검증이 없다는 뜻입니다.</p></aside>
+</section>
+
+<!-- ===================== 04 POLANYI BILLBOARD ===================== -->
+<section class="slide bill" data-ch="00 출발점" data-cc="var(--orange)" aria-label="폴라니">
+  <div class="cloud ambient drift" style="top:120px;width:200px;height:54px;animation-delay:-4s"></div>
+  <div class="cloud ambient drift" style="top:210px;width:130px;height:40px;animation-delay:-15s;animation-duration:34s"></div>
+  <div class="wall"></div>
+  <div class="leg" style="left:330px"></div><div class="leg" style="left:880px"></div>
+  <div class="ground"></div>
+  <div class="poster pop">
+    <div class="mono" style="font-size:15px;letter-spacing:.14em;margin-bottom:22px">POLANYI · 1966 · THE TACIT DIMENSION</div>
+    <div class="q">“우리는 말할 수 있는 것보다<br>더 많이 안다.”</div>
+    <div class="en">We can know more than we can tell.</div>
+    <div class="by">— Michael Polanyi</div>
+    <div class="m" data-mascot="ink"></div>
+  </div>
+  <div class="side">
+    <div class="note-card" data-step="1"><span class="k">EXAMPLE</span>얼굴 알아보기, 자전거 타기 — <b>할 수는 있지만</b> 규칙으로 다 설명할 수 없는 능력.</div>
+    <div class="note-card" data-step="2"><span class="k">POLANYI'S PARADOX</span>경제학자 <b>David Autor</b>가 2014년 ‘폴라니의 역설’로 명명. 자동화가 왜 어려운 일이 있는지 설명하는 틀. <br><span class="chip v-res" style="margin-top:10px">연구 · NBER WP20485</span></div>
+  </div>
+  <aside class="notes"><p>질문 던지기: “지금 여기서 자전거 타는 법을 말로만 설명해 보실 분?” 말로 하면 ‘균형을 잡는다’ 정도밖에 안 나옵니다.</p><p>이것이 모든 논의의 출발점입니다. LLM은 ‘말해진 것’을 배웠습니다.</p></aside>
+</section>
+
+<!-- ===================== 05 STATS ===================== -->
+<section class="slide" data-ch="00 지형" data-cc="var(--orange)" aria-label="숫자 네 개">
+  <div class="kicker rise">THE LANDSCAPE IN 4 NUMBERS</div>
+  <h2 class="h2 rise" style="--d:1">숫자 네 개로 보는 지형 — <span style="opacity:.55">출처 수준과 함께</span></h2>
+  <div class="stats">
+    <div class="stat" data-step="1" style="background:var(--orange)"><span class="mono" style="font-size:14px;letter-spacing:.12em">TRANSFER</span><div class="big">+34%</div><p>생성형 AI 도입 후 <b>초보 상담사</b>의 시간당 해결 건수 증가. 숙련자는 미미.</p><div class="who">Brynjolfsson 외 · 상담원 5,179명</div><span class="chip v-res">연구 · 시사적 증거</span></div>
+    <div class="stat" data-step="2" style="background:var(--sky)"><span class="mono" style="font-size:14px;letter-spacing:.12em">PEAK DATA</span><div class="big">2028</div><p>공개 텍스트 재고와 학습 수요가 만나는 <b>중간값</b> (범위 2026–2032).</p><div class="who">Epoch AI · 약 300조 토큰 추정</div><span class="chip v-res">연구 · 추정</span></div>
+    <div class="stat" data-step="3" style="background:var(--yellow)"><span class="mono" style="font-size:14px;letter-spacing:.12em">CRAFT</span><div class="big">85%</div><p>참치 감정 AI와 <b>인간 검사자</b>의 판정 일치율.</p><div class="who">TUNA SCOPE · 2019 PoC</div><span class="chip v-self">회사 발표 · 독립검증 없음</span></div>
+    <div class="stat" data-step="4" style="background:var(--sage)"><span class="mono" style="font-size:14px;letter-spacing:.12em">SCALE</span><div class="big">800<small>명</small></div><p>도요타 O-Beya AI 에이전트를 쓰는 <b>파워트레인 엔지니어</b> 규모 (2024.1~).</p><div class="who">Microsoft Source Asia</div><span class="chip v-self">회사 발표</span></div>
+  </div>
+  <aside class="notes"><p>숫자를 하나씩 공개하며 <b>칩 색깔</b>을 함께 읽어 주세요. +34%와 2028은 연구, 85%와 800명은 회사가 스스로 발표한 수치입니다.</p><p>“같은 숫자라도 누가 말했는지에 따라 무게가 다릅니다.”</p></aside>
+</section>
+
+<!-- ===================== 06 CH01 ===================== -->
+<section class="slide chapter" style="--c:var(--green)" aria-label="챕터 1 개념">
+  <div class="bignum rise">01</div>
+  <div class="txt"><div class="kicker rise" style="--d:1">CHAPTER 01 — CONCEPT</div><h2 class="rise" style="--d:2">개념</h2><p class="rise" style="--d:3">명시지와 암묵지는 무엇이 다른가. 그리고 조직 안에서 지식은 어떻게 도는가.</p></div>
+  <div class="sw rise" style="--d:4">GREEN · KNOW-HOW</div>
+  <div class="m ambient bob" data-mascot="ink"></div>
+  <aside class="notes"><p>챕터 1: 개념 정리 (약 6분).</p></aside>
+</section>
+
+<!-- ===================== 07 EXPLICIT VS TACIT ===================== -->
+<section class="slide" data-ch="01 개념" data-cc="var(--green)" aria-label="명시지와 암묵지">
+  <div class="kicker rise">KNOW-THAT vs KNOW-HOW</div>
+  <h2 class="h2 rise" style="--d:1">핵심 차이는 <span class="hl">‘문서로 옮길 수 있는가’</span></h2>
+  <div class="versus">
+    <div class="vside ex" data-step="1"><div data-icon="book"></div><div class="t">명시지<small>EXPLICIT</small></div><div class="sub">지금 LLM이 배우는 것</div>
+      <dl><dt>형태</dt><dd>문서, 매뉴얼, 숫자, 규칙, 코드</dd><dt>전달</dt><dd>공유·검색·복사로 바로 퍼진다</dd><dt>LLM</dt><dd>웹·책·문서를 대량 학습 — <b>바로 이 영역</b></dd><dt>비유</dt><dd>“매뉴얼을 다 외운 똑똑한 신입”</dd></dl></div>
+    <div class="vside ta" data-step="2"><div data-icon="hand"></div><div class="t">암묵지<small>TACIT</small></div><div class="sub">문서에 남지 않는 것</div>
+      <dl><dt>형태</dt><dd>경험, 감, 판단 습관, 신체 감각</dd><dt>전달</dt><dd>옆에서 함께 일하기, 관찰, 도제, 시범</dd><dt>LLM</dt><dd>문서에 없으므로 <b>원칙적으로 학습 데이터에 없음</b></dd><dt>비유</dt><dd>베테랑이 “딱 보면 아는” 판단</dd></dl></div>
+    <div class="vs pop" style="--d:3">VS</div>
+  </div>
+  <div class="foot" data-step="3"><span class="chip v-res">연구 · 초록 수준</span><span>전문가 <b>행동</b>에서 LLM이 암묵지를 꺼낼 수 있는지 실험한 ICIS 2026 논문 — 일반화는 추가 검증 필요</span></div>
+  <aside class="notes"><p>왼쪽은 ‘사실로 아는 것(know-that)’, 오른쪽은 ‘하는 법을 아는 것(know-how)’.</p><p>교사 예시: 교육과정 성취기준 = 명시지, 학생 표정을 보고 설명을 바꾸는 순간 = 암묵지.</p><p>비유 출처: ThinkingData 블로그.</p></aside>
+</section>
+
+<!-- ===================== 08 SECI ===================== -->
+<section class="slide" data-ch="01 개념" data-cc="var(--green)" data-scene="seci" aria-label="SECI 모델">
+  <div class="kicker rise">NONAKA · SECI MODEL (1990~)</div>
+  <h2 class="h2 rise" style="--d:1">조직에서 지식이 도는 4단계</h2>
+  <div class="seci">
+    <svg viewBox="0 0 600 600" class="rise" style="--d:2" role="img" aria-label="SECI 순환 도식">
+      <g class="q" data-q="s"><path d="M300 300 L300 40 A260 260 0 0 0 40 300Z" fill="#3eaa5c" stroke="#23231f" stroke-width="4"/><text x="160" y="180" text-anchor="middle" font-family="Rubik" font-weight="900" font-size="88" fill="#23231f">S</text><text x="160" y="232" text-anchor="middle" font-family="Black Han Sans" font-size="30" fill="#23231f">공동화</text></g>
+      <g class="q" data-q="e"><path d="M300 300 L560 300 A260 260 0 0 0 300 40Z" fill="#ff6b3d" stroke="#23231f" stroke-width="4"/><text x="440" y="180" text-anchor="middle" font-family="Rubik" font-weight="900" font-size="88" fill="#23231f">E</text><text x="440" y="232" text-anchor="middle" font-family="Black Han Sans" font-size="30" fill="#23231f">표출화 ★</text></g>
+      <g class="q" data-q="c"><path d="M300 300 L300 560 A260 260 0 0 0 560 300Z" fill="#f2ea6a" stroke="#23231f" stroke-width="4"/><text x="440" y="410" text-anchor="middle" font-family="Rubik" font-weight="900" font-size="88" fill="#23231f">C</text><text x="440" y="462" text-anchor="middle" font-family="Black Han Sans" font-size="30" fill="#23231f">연결화</text></g>
+      <g class="q" data-q="i"><path d="M300 300 L40 300 A260 260 0 0 0 300 560Z" fill="#a9d8db" stroke="#23231f" stroke-width="4"/><text x="160" y="410" text-anchor="middle" font-family="Rubik" font-weight="900" font-size="88" fill="#23231f">I</text><text x="160" y="462" text-anchor="middle" font-family="Black Han Sans" font-size="30" fill="#23231f">내면화</text></g>
+      <circle cx="300" cy="300" r="282" fill="none" stroke="#23231f" stroke-width="2" stroke-dasharray="3 10"/>
+      <circle cx="300" cy="300" r="62" fill="#fbfae6" stroke="#23231f" stroke-width="4"/>
+      <text x="300" y="294" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="17" fill="#23231f">KNOWLEDGE</text><text x="300" y="318" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="17" fill="#23231f">SPIRAL</text>
+      <g class="orbit ambient"><circle cx="300" cy="18" r="15" fill="#23231f"/><circle cx="300" cy="18" r="6" fill="#fbfae6"/></g>
+    </svg>
+    <div class="seci-detail">
+      <div class="sd" data-sd="intro"><div class="code" style="font-size:90px">S→E→C→I</div><h3>폴라니의 구분을 지식경영으로</h3><p class="arrow">암묵 ↔ 명시가 나선형으로 순환한다</p><p>노나카 이쿠지로가 만든 틀. 한 단계씩 짚어 보겠습니다.</p></div>
+      <div class="sd" data-sd="s"><div class="code" style="color:var(--green)">S</div><h3>공동화 Socialization</h3><p class="arrow">암묵지 → 암묵지</p><p>관찰·모방·실습으로 함께 경험하며 전수하는 단계.</p><div class="eg">예: 신입이 베테랑의 고객 통화에 동석한다.<br><b>AI 도입에서 가장 설계가 비어 있는 단계</b>로 자주 지적된다.</div></div>
+      <div class="sd" data-sd="e"><div class="code" style="color:var(--orange)">E ★</div><h3>표출화 Externalization</h3><p class="arrow">암묵지 → 명시지 · 가장 어렵고 핵심</p><p>노하우를 언어·개념·도식으로 꺼내는 단계.</p><div class="eg">예: 베테랑이 “갱신이 위험한 5가지 신호”를 정리한다.<br>단, 비판자들은 이 ‘전환’이 <b>원리상 부분적</b>일 수밖에 없다고 본다.</div></div>
+      <div class="sd" data-sd="c"><div class="code" style="color:#b9ae00">C</div><h3>연결화 Combination</h3><p class="arrow">명시지 → 명시지</p><p>문서·데이터를 결합·분류·재편집해 새 명시지를 만드는 단계.</p><div class="eg">예: 신호 목록 + 이탈 데이터를 합쳐 플레이북 제작.<br><b>지금의 LLM·RAG가 가장 잘하는 단계.</b></div></div>
+      <div class="sd" data-sd="i"><div class="code" style="color:#3a9ea3">I</div><h3>내면화 Internalization</h3><p class="arrow">명시지 → 암묵지</p><p>실행하며 배우기(learning by doing)로 다시 몸에 익히는 단계.</p><div class="eg">예: 플레이북을 실무에 써보며 감각으로 체득한다.<br>문서가 ‘내 것’이 되는 순간.</div></div>
+      <div class="sd" data-sd="all"><h3 style="margin-top:0">유명한 예 — 파나소닉 제빵기</h3><p style="margin-top:14px">X선 비교만으로는 안 되던 반죽을, 개발자가 <b>장인 곁에서 직접 배우며</b> 풀었다는 사례. 공동화 → 표출화의 교과서적 장면.</p><div class="eg" style="background:#f8d9d0"><b>주의</b> — SECI 자체가 논쟁 중. Gourlay(2006)·Tsoukas(2003): 폴라니에게 암묵/명시는 <b>두 형태가 아니라 한 앎의 두 차원</b>이라 완전히 ‘전환’될 수 없다. → 05 비판</div></div>
+    </div>
+  </div>
+  <span data-step="1"></span><span data-step="2"></span><span data-step="3"></span><span data-step="4"></span><span data-step="5"></span>
+  <aside class="notes"><p>→ 키를 누를 때마다 S, E, C, I 한 칸씩 밝아지고, 점이 그 구간만 돕니다. 다섯 번째에서 파나소닉 사례와 비판 예고.</p><p>강조점: LLM은 <b>C(연결화)</b>에 강하고, 정작 어려운 것은 <b>E(표출화)</b>와 <b>S(공동화)</b>.</p></aside>
+</section>
+
+<!-- ===================== 09 CH02 ===================== -->
+<section class="slide chapter" style="--c:var(--orange)" aria-label="챕터 2 왜 지금">
+  <div class="bignum rise">02</div>
+  <div class="txt"><div class="kicker rise" style="--d:1">CHAPTER 02 — WHY NOW</div><h2 class="rise" style="--d:2">왜 지금</h2><p class="rise" style="--d:3">유행어라서가 아니라, LLM의 구조적 한계 네 가지가 동시에 드러나고 있기 때문.</p></div>
+  <div class="sw rise" style="--d:4">ORANGE · NEXT PARADIGM?</div>
+  <div class="m ambient bob" data-mascot="ink"></div>
+  <aside class="notes"><p>챕터 2 (약 7분). “다음 병목은 암묵지”라는 말이 왜 나오는지.</p></aside>
+</section>
+
+<!-- ===================== 10 FOUR REASONS ===================== -->
+<section class="slide" data-ch="02 왜 지금" data-cc="var(--orange)" aria-label="네 가지 이유">
+  <div class="kicker rise">FOUR STRUCTURAL LIMITS</div>
+  <h2 class="h2 rise" style="--d:1">‘다음 패러다임’으로 불리는 네 가지 이유</h2>
+  <div class="vcards" style="grid-template-columns:repeat(4,1fr);margin-top:30px">
+    <div class="vcard" data-step="1"><span class="no">①</span><span class="lab">FUEL</span><div data-icon="drop"></div><h3>공개 텍스트라는 연료가 유한하다</h3><p>유효 재고 약 300조 토큰, 소진 시점 2026–2032. 수츠케버: “peak data에 도달했다.”</p><p style="margin-top:8px;font-size:17px;opacity:.8">※ ‘AI가 멈춘다’가 아니라 무게중심이 현장·행동 데이터로 이동.</p><div class="src"><span class="chip v-res">Epoch AI</span><span class="chip v-news">보도</span></div></div>
+    <div class="vcard" data-step="2"><span class="no">②</span><span class="lab">WORLD</span><div data-icon="globe"></div><h3>말은 잘하지만 세계를 모른다</h3><p>르쿤: 토큰 생성 스케일링만으로는 다음 혁명이 오지 않는다 — <b>세계 모델</b>로 전환 필요.</p><p style="margin-top:8px;font-size:17px;opacity:.8">고양이는 중력을 안다. 모라벡의 역설.</p><div class="src"><span class="chip v-res">AI Magazine 2026</span></div></div>
+    <div class="vcard" data-step="3"><span class="no">③</span><span class="lab">CONTEXT</span><div data-icon="chat"></div><h3>병목은 성능이 아니라 ‘맥락’</h3><p>AI가 성과를 못 낸 원인은 모델이 아니라, 피드백을 기억하고 맥락에 적응하지 못하는 것. 암묵지가 빠진 답은 “매번 사람이 손봐야”.</p><div class="src"><span class="chip v-unk">MIT 보고서 2차 인용</span></div></div>
+    <div class="vcard" data-step="4"><span class="no">④</span><span class="lab">PHYSICAL</span><div data-icon="arm"></div><h3>화면 밖은 전부 암묵지</h3><p>흙의 상태, 금속의 소리, 반죽의 되기, 용접 불꽃 모양. 굴착기 숙련공의 “지면을 살짝 흔드는” 판단은 매뉴얼로 학습 불가.</p><div class="src"><span class="chip v-news">김준하 · 트렌드비즈</span></div></div>
+  </div>
+  <aside class="notes"><p>① 연료 고갈 → ② 세계를 모름 → ③ 맥락이 없음 → ④ 몸이 없음. 네 가지가 모두 “문서 밖의 지식”을 가리킨다는 점을 묶어 주세요.</p><p>③의 MIT 수치(‘95% 무성과’)는 국내 2차 글로만 확인되어 <b>미확인</b>입니다.</p></aside>
+</section>
+
+<!-- ===================== 11 BARS ===================== -->
+<section class="slide" data-ch="02 왜 지금" data-cc="var(--orange)" aria-label="실증 연구">
+  <div class="kicker rise">EVIDENCE · GENERATIVE AI AT WORK</div>
+  <h2 class="h2 rise" style="--d:1">AI는 숙련자의 ‘감’을 초보에게 옮겼나?</h2>
+  <div style="display:grid;grid-template-columns:1fr 430px;gap:50px;margin-top:10px">
+    <div>
+      <div class="bars" data-step="1">
+        <div class="bar"><span class="lab">초보·저숙련</span><div class="track"><div class="fill" style="--w:100%;background:var(--orange)"></div><span class="val">+34%</span></div></div>
+        <div class="bar"><span class="lab">전체 평균</span><div class="track"><div class="fill" style="--w:41%;background:var(--yellow)"></div><span class="val">+14%</span></div></div>
+        <div class="bar"><span class="lab">숙련자</span><div class="track"><div class="fill" style="--w:3%;background:var(--sage)"></div><span class="val">미미</span></div></div>
+      </div>
+      <p class="small" style="margin-top:18px;opacity:.75">시간당 해결 건수 변화 · 고객지원 에이전트 5,179명</p>
+    </div>
+    <div style="display:grid;gap:18px;align-content:start;margin-top:40px">
+      <div class="note-card" style="background:var(--sage);font-family:var(--f-mono);font-size:16px;line-height:1.8">STUDY : Generative AI at Work<br>BY&nbsp;&nbsp;&nbsp;&nbsp;: Brynjolfsson · Li · Raymond<br>REF&nbsp;&nbsp;&nbsp;: NBER WP 31161<br>N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 5,179 agents</div>
+      <div class="note-card" data-step="2">저자 표현: AI가 숙련자의 <b>“잠재적 암묵지”</b>를 전파했다는 <span class="hl">시사적 증거(suggestive evidence)</span> — 확정 결론이 아님.</div>
+      <div data-step="3"><span class="tag-ask">ASK</span><p class="h3" style="margin-top:12px;font-size:30px">왜 숙련자에게는 효과가 미미했을까?</p></div>
+    </div>
+  </div>
+  <aside class="notes"><p>막대가 자라는 동안 잠시 멈춰서 청중이 예상하게 해 보세요.</p><p>질문 후 예상 답: 숙련자는 이미 그 노하우를 갖고 있다 → AI가 ‘상위 상담사의 패턴’을 초보에게 전달한 셈. 원문: “지시가 존재하지 않는 과제도 ML이 학습할 수 있다.”</p></aside>
+</section>
+
+<!-- ===================== 12 CH03 ===================== -->
+<section class="slide chapter" style="--c:var(--yellow)" aria-label="챕터 3 사례">
+  <div class="bignum rise">03</div>
+  <div class="txt"><div class="kicker rise" style="--d:1">CHAPTER 03 — CASES</div><h2 class="rise" style="--d:2">사례</h2><p class="rise" style="--d:3"><b class="mono" style="font-size:34px">SHOW, DON'T TELL.</b><br>설명해달라고 하지 말고, 하는 것을 보여주게 하라.</p></div>
+  <div class="sw rise" style="--d:4">YELLOW · WHO / WHAT / HOW</div>
+  <div class="m ambient bob" data-mascot="ink"></div>
+  <aside class="notes"><p>챕터 3 (약 10분). 모든 사례의 공통 원리는 하나: 말이 아니라 <b>행동</b>을 데이터로.</p></aside>
+</section>
+
+<!-- ===================== 13 FOUR WAYS ===================== -->
+<section class="slide" data-ch="03 사례" data-cc="var(--yellow)" aria-label="캡처 4방식">
+  <div class="kicker rise">FOUR WAYS TO “CATCH” IT</div>
+  <h2 class="h2 rise" style="--d:1">암묵지를 ‘잡는’ 네 가지 길</h2>
+  <div class="ways">
+    <div class="way" data-step="1"><div class="hd" style="background:var(--salmon)"><span class="en">01 · INTERVIEW</span><div data-icon="mic"></div><h3>인터뷰</h3><p>AI가 묻고, 판단 기준을 끌어낸다</p></div><ul><li>Tacit(Theoremlabs) — “첫 세 단계와 그 순서를 왜?”</li><li>Blockbrain — Tacit-to-Digital</li><li>Workait — 전문가 ‘AI Worker’</li></ul></div>
+    <div class="way" data-step="2"><div class="hd" style="background:var(--yellow)"><span class="en">02 · TRACE</span><div data-icon="steps"></div><h3>궤적</h3><p>실제 일한 흔적에서 패턴을 뽑는다</p></div><ul><li>채널톡 — 1–2년 상담 흐름 → SOP 초안</li><li>도요타 — 대화 이력 + 전문가 리뷰</li><li>나델라 — “인간의 작업 궤적”</li></ul></div>
+    <div class="way" data-step="3"><div class="hd" style="background:var(--green)"><span class="en">03 · DEMO</span><div data-icon="eye"></div><h3>시범</h3><p>보여준 행동을 따라 배운다</p></div><ul><li>모방학습 · 역강화학습(IRL)</li><li>사람이 문 여는 영상 → 로봇 학습</li><li>참치 장인 판정 + 꼬리 단면 사진</li></ul></div>
+    <div class="way" data-step="4"><div class="hd" style="background:var(--sky)"><span class="en">04 · SENSOR</span><div data-icon="wave"></div><h3>센서</h3><p>몸의 감각을 수치로 기록한다</p></div><ul><li>CrafTouch — 손·팔의 촉감·힘</li><li>용접 각도·속도·재질별 판단</li><li>2D/3D 비전 검사</li></ul></div>
+  </div>
+  <p class="small" data-step="5" style="margin-top:22px"><span class="tag-ask" style="font-size:14px;padding:7px 10px;margin-right:10px">NOTE</span>어느 방식도 암묵지 ‘그 자체’를 옮기진 않는다 — 기록된 흔적, 행동 모방, 부분적 언어화일 뿐. → 05 비판</p>
+  <aside class="notes"><p>이 네 칸이 이후 사례를 읽는 렌즈입니다. 사례가 나올 때마다 “이건 어느 칸?” 하고 물어보세요.</p><p>보너스: RLHF는 ‘비교 판단’이라는 다섯 번째 우회로 (p.16).</p></aside>
+</section>
+
+<!-- ===================== 14 GLOBAL CASES ===================== -->
+<section class="slide" data-ch="03 사례" data-cc="var(--yellow)" aria-label="해외 사례">
+  <div class="kicker rise">CASE FILES · GLOBAL</div>
+  <h2 class="h2 rise" style="--d:1">은퇴하는 전문가, 10년 수련의 눈, 300년 공방의 손</h2>
+  <div class="icards">
+    <div class="icard" data-step="1"><div class="top"><div data-icon="gear"></div><div class="chips"><span class="chip v-self">회사 발표</span></div></div><h3>도요타 O-Beya</h3>
+      <dl class="meta"><dt>WHAT :</dt><dd>파워트레인 개발용 AI 에이전트 9종(진동·연비·규제)의 ‘큰 방’</dd><dt>HOW :</dt><dd>베테랑의 설계 보고서·<b>손글씨 문서</b>까지 투입, 대화 이력과 전문가 리뷰를 재학습</dd><dt>SCALE :</dt><dd>엔지니어 약 800명 (2024.1~)</dd><dt>WAY :</dt><dd>궤적</dd></dl>
+      <div class="quote">“전문가가 은퇴하면 지식이 사라진다. 그걸 막는 것이 미션.” — 오니시 겐지</div></div>
+    <div class="icard" data-step="2" style="background:var(--sky)"><div class="top"><div data-icon="fish"></div><div class="chips"><span class="chip v-self">주관사 발표</span></div></div><h3>TUNA SCOPE</h3>
+      <dl class="meta"><dt>WHAT :</dt><dd>참치 꼬리 단면을 보고 품질을 판정하는 <b>최소 10년 수련</b>의 ‘눈 감정’</dd><dt>HOW :</dt><dd>장인의 등급 판정 + 꼬리 단면 사진 → 이미지 딥러닝</dd><dt>RESULT :</dt><dd>인간 검사자와 85% 일치 (2019 PoC)</dd><dt>WAY :</dt><dd>시범</dd></dl>
+      <div class="quote">장인 본인도 기준을 언어화하기 어렵다고 밝힘. 독립 검증 미확인.</div></div>
+    <div class="icard" data-step="3" style="background:#f6c9bb"><div class="top"><div data-icon="pot"></div><div class="chips"><span class="chip v-news">대학 보도</span></div></div><h3>CrafTouch</h3>
+      <dl class="meta"><dt>WHAT :</dt><dd>300년 역사 오키나와 쓰보야 도예 공방의 기술 전승</dd><dt>HOW :</dt><dd>웨어러블 햅틱 센서로 손·팔의 <b>촉감·힘</b> 기록 → 타인에게 재생 + 로봇 아바타</dd><dt>WHERE :</dt><dd>2025 오사카·간사이 엑스포 전시</dd><dt>WAY :</dt><dd>센서</dd></dl>
+      <div class="quote">“언어화할 수 없는 기술과 감각”을 측정 대상으로 명시.</div></div>
+  </div>
+  <aside class="notes"><p>세 사례를 앞 장의 네 칸에 대응시켜 보세요: 도요타=궤적, 참치=시범, 도예=센서.</p><p>수치는 모두 자기 보고. 특히 TUNA 85%는 2019년 개념검증 단계의 주관사 발표입니다.</p></aside>
+</section>
+
+<!-- ===================== 15 KOREA ===================== -->
+<section class="slide" data-ch="03 사례" data-cc="var(--yellow)" aria-label="한국 사례">
+  <div class="kicker rise">CASE FILES · KOREA</div>
+  <h2 class="h2 rise" style="--d:1">한국: 제조 숙련공의 ‘감’이 전략 자산이 되다</h2>
+  <div class="icards">
+    <div class="icard" data-step="1" style="background:var(--yellow)"><div class="top"><div data-icon="spark"></div><div class="chips"><span class="chip v-news">MTN 보도</span></div></div><h3>제조 암묵지 사업 · HD현대중공업</h3>
+      <dl class="meta"><dt>WHY :</dt><dd>숙련공 부족·기술 소실 대응</dd><dt>SCALE :</dt><dd>10개 업종, 30개 컨소시엄</dd><dt>HOW :</dt><dd>용접 숙련공의 각도·속도·재질별 판단 데이터화 → 로봇 실증 + 비전 검사</dd></dl>
+      <div class="quote">용접 = 금형 모양·두께마다 전류·전압을 순간 판단으로 조절하는 일.</div></div>
+    <div class="icard" data-step="2" style="background:#bfe5c8"><div class="top"><div data-icon="headset"></div><div class="chips"><span class="chip v-unk">성과 수치 미확인</span></div></div><h3>채널톡</h3>
+      <dl class="meta"><dt>WHAT :</dt><dd>고객 상담 데이터 기반 AI</dd><dt>HOW :</dt><dd>상담사들의 지난 1–2년 상담 흐름에서 노하우를 뽑아 <b>상담 SOP 자동 초안</b></dd><dt>WAY :</dt><dd>궤적 — 문서가 아니라 실제 상담 궤적</dd></dl>
+      <div class="quote">EO Korea 인터뷰: 도메인 지식·현장 이해가 생존 전략.</div></div>
+    <div class="icard" data-step="3"><div class="top"><div data-icon="flag"></div><div class="chips"><span class="chip v-news">보도</span></div></div><h3>전략 담론</h3>
+      <dl class="meta"><dt>임종인 :</dt><dd>수십 년 제조업 암묵지를 피지컬 AI에 (코리아타임스, 11.04)</dd><dt>하정우 :</dt><dd>현장 암묵지 데이터화 → 피지컬 AI·산업 AX</dd><dt>구윤철 :</dt><dd>『AI 코리아』 — 조선 용접을 대표 예로</dd></dl>
+      <div class="quote">크몽 AX·ThinkingData: “병목은 데이터 양이 아니라 암묵지” — 확산 신호이자 <b>마케팅 언어화</b>의 신호.</div></div>
+  </div>
+  <aside class="notes"><p>한국 맥락의 핵심은 <b>제조·조선 용접</b>. 정책 담론이 빠르게 늘고 있지만 대부분 보도 단계입니다.</p><p>세 번째 카드의 마지막 문장을 다음 챕터(비판)로 가는 다리로 쓰세요.</p></aside>
+</section>
+
+<!-- ===================== 16 TECHNIQUES ===================== -->
+<section class="slide" data-ch="03 사례" data-cc="var(--yellow)" aria-label="학습 기술">
+  <div class="kicker rise">UNDER THE HOOD</div>
+  <h2 class="h2 rise" style="--d:1">말 대신 행동·비교로 배우는 세 가지 기술</h2>
+  <div class="techs">
+    <div class="tech" data-step="1"><div data-icon="hand"></div><span class="en">IMITATION LEARNING</span><h3>모방학습</h3>
+      <div class="flow"><span class="box">전문가<br>시범</span><span class="ln"><i class="pk ambient travel"></i></span><span class="box">그대로<br>따라하기</span></div>
+      <p>상태–행동 쌍을 지도학습. 매끄러움·안전처럼 <b>글로 쓰기 어려운 제약</b>이 시범에 담긴다.</p>
+      <div class="pm"><span><b>약점</b>상황이 바뀌면 오차가 누적(compounding error)</span></div></div>
+    <div class="tech" data-step="2" style="background:#dcefe0"><div data-icon="eye"></div><span class="en">INVERSE RL</span><h3>역강화학습</h3>
+      <div class="flow"><span class="box">전문가<br>행동</span><span class="ln"><i class="pk ambient travel"></i></span><span class="box">“왜?”<br>보상 추론</span></div>
+      <p>행동을 복사하지 않고, 그 행동을 최적으로 만드는 <b>보상함수를 역추론</b> → 새 상황에도 일반화.</p>
+      <div class="pm"><span><b>예</b>Google XIRL, 사람이 문 여는 영상만으로 로봇이 학습(Sermanet 외)</span></div></div>
+    <div class="tech" data-step="3" style="background:#fbf6c4"><div data-icon="compare"></div><span class="en">RLHF</span><h3>사람 피드백 강화학습</h3>
+      <div class="flow"><span class="box">A vs B<br>선택</span><span class="ln"><i class="pk ambient travel"></i></span><span class="box">보상<br>모델</span></div>
+      <p>‘좋은 답’의 규칙은 못 써도, 둘 중 나은 쪽은 즉시 고른다. 암묵지를 <b>언어화 없이 비교로 우회 수집</b>.</p>
+      <div class="pm"><span><b>출처</b><span class="chip v-unk">해설 기반 · 원논문 직접 확인 안 함</span></span></div></div>
+  </div>
+  <aside class="notes"><p>세 기술의 공통점: <b>“설명해 주세요”</b>를 요구하지 않는다. 시범을 보이거나, 둘 중 하나를 고르기만 하면 된다.</p><p>교실 연결: 학생이 ‘좋은 글’을 정의는 못 해도 두 글 중 나은 것은 고를 수 있다 → 루브릭 이전의 판단.</p></aside>
+</section>
+
+<!-- ===================== 17 CH04 ===================== -->
+<section class="slide chapter" style="--c:var(--sky)" aria-label="챕터 4 발언">
+  <div class="bignum rise">04</div>
+  <div class="txt"><div class="kicker rise" style="--d:1">CHAPTER 04 — VOICES</div><h2 class="rise" style="--d:2">발언</h2><p class="rise" style="--d:3">누가, 무슨 말을 했나.<br><span style="font-size:22px;opacity:.75">※ “tacit knowledge is the next frontier”라는 정확한 원문은 <b>미확인</b> — 취지가 같은 발언만 소개합니다.</span></p></div>
+  <div class="sw rise" style="--d:4">SKY · QUOTES</div>
+  <div class="m ambient bob" data-mascot="ink"></div>
+  <aside class="notes"><p>챕터 4 (약 4분). 인터넷에 도는 그럴듯한 ‘명언’을 그대로 쓰지 않는 태도 자체를 보여 주세요.</p></aside>
+</section>
+
+<!-- ===================== 18 QUOTES ===================== -->
+<section class="slide" data-ch="04 발언" data-cc="var(--sky)" aria-label="주요 발언">
+  <div class="kicker rise">WHO SAID WHAT</div>
+  <h2 class="h2 rise" style="--d:1">CEO · 교수 · 경제학자의 네 문장</h2>
+  <div class="quotes">
+    <div class="qcard" data-step="1" style="background:var(--sky)"><div class="mk">“</div><blockquote>기업의 암묵지란 기업이 고유하게 일하는 방식, 판단하는 방식, <b>취향(taste)</b>을 갖는 방식이다.</blockquote><div class="who">SATYA NADELLA · Microsoft CEO</div><div class="ctx">Possible 팟캐스트 — 인간의 작업 궤적으로 추출해 가중치에 인코딩. IP로 지킬지 유출할지 결정해야.</div></div>
+    <div class="qcard" data-step="2" style="background:var(--sage)"><div class="mk">“</div><blockquote>회사의 미래는 그 회사 고유의 파운데이션 모델 — 본질적으로 <b>암묵지를 포착한 모델</b> — 을 갖는 것이다.</blockquote><div class="who">SATYA NADELLA · Stripe Cheeky Pint</div><div class="ctx">암묵지는 사람 머릿속에도, 회사 고유의 가중치 속에도 복리로 쌓인다.</div></div>
+    <div class="qcard" data-step="3" style="background:var(--yellow)"><div class="mk">“</div><blockquote>피지컬 AI의 관건은 데이터화돼 있지 않은 노하우, 즉 <b>암묵지를 어떻게 데이터화하느냐</b>.</blockquote><div class="who">김준하 · GIST 교수 · 티타임즈TV</div><div class="ctx">숙련공에게 임금피크제가 아니라 인센티브를. AI의 위험 행동을 사람이 제지하는 ‘권한 설계’가 핵심.</div></div>
+    <div class="qcard" data-step="4" style="background:var(--ink);color:var(--cream)"><div class="mk">“</div><blockquote>적응력·상식·창의성을 요하는 과제에서 기계로 사람을 대체하는 도전은 <b>여전히 막대하다</b>.</blockquote><div class="who">DAVID AUTOR · MIT · 2014</div><div class="ctx">‘폴라니의 역설’을 명명한 논문. 원래 논지는 낙관이 아니라 <b>자동화 과장에 대한 경고</b>.</div></div>
+  </div>
+  <aside class="notes"><p>대비를 보여 주세요: 나델라(기업 전략) · 김준하(노동·권한) · Autor(경고).</p><p>Autor는 자주 ‘AI 낙관론’ 근거로 잘못 인용됩니다. 원래 메시지는 반대입니다.</p></aside>
+</section>
+
+<!-- ===================== 19 CH05 ===================== -->
+<section class="slide chapter inv" style="--c:var(--plum)" aria-label="챕터 5 비판">
+  <div class="bignum rise">05</div>
+  <div class="txt"><div class="kicker rise" style="--d:1">CHAPTER 05 — CRITIQUE</div><h2 class="rise" style="--d:2">비판</h2><p class="rise" style="--d:3">‘캡처’라는 말을 의심해야 하는 이유.<br>회의론은 부록이 아니라 이 주제의 본질이다.</p></div>
+  <div class="sw rise" style="--d:4">PLUM · HANDLE WITH CARE</div>
+  <div class="m ambient bob" data-mascot="cream"></div>
+  <aside class="notes"><p>챕터 5 (약 7분). 폴라니 본인의 이론이 ‘완전한 전환’을 부정한다는 점이 핵심.</p></aside>
+</section>
+
+<!-- ===================== 20 CRITIQUE ===================== -->
+<section class="slide dark" data-ch="05 비판" data-cc="var(--salmon)" aria-label="비판 네 가지">
+  <div class="kicker rise">FOUR OBJECTIONS</div>
+  <h2 class="h2 rise" style="--d:1">네 가지 반론</h2>
+  <div class="crit">
+    <div>
+      <div class="coin-wrap rise" style="--d:2"><div class="coin ambient flip"><div class="face a"><div><b>초점적 자각</b><small>FOCAL — 지금 보는 것</small></div></div><div class="face b"><div><b>보조적 자각</b><small>SUBSIDIARY — 기대고 있는 것</small></div></div></div></div>
+      <p class="coin-cap rise" style="--d:3">암묵/명시는 두 <b>형태</b>가 아니라<br>한 앎의 두 <b>차원</b> — “동전의 양면”</p>
+    </div>
+    <div class="rows">
+      <div class="row" data-step="1"><span class="n">1</span><div><h3>암묵지는 ‘전환’되지 않는다</h3><p>Gourlay·Tsoukas: 노나카는 폴라니를 오독했다. Philipson(2026): 프롬프팅은 <b>부분적 표출화</b>일 뿐, 암묵적 앎은 “주의를 기울이는 방식”이다.</p></div></div>
+      <div class="row" data-step="2"><span class="n">2</span><div><h3>“AI는 암묵지를 가질 수 없다” — 그리고 반론</h3><p>학습 데이터 = 이미 기록된 것 = 정의상 명시지(에세이). 반론: Brynjolfsson 연구·모방학습처럼 <b>행동 패턴으로 접근</b>은 가능.</p></div></div>
+      <div class="row" data-step="3"><span class="n">3</span><div><h3>마케팅 과장인가?</h3><p>직접 비판 기사는 <span class="chip v-unk">미확인</span> 정황은 있다: 기존 제품의 ‘암묵지’ 리브랜딩, 자기 보고 수치, 논쟁적인 동사 ‘캡처’.</p></div></div>
+      <div class="row" data-step="4"><span class="n">4</span><div><h3>기술 문제이자 <span style="color:var(--yellow)">소유권</span> 문제</h3><p>김준하: 동의·보상 없는 자산화는 착취 논란. 나델라: 외부 모델사로 유출되면 경쟁 우위가 넘어간다.</p></div></div>
+    </div>
+  </div>
+  <aside class="notes"><p>동전이 돌아가는 동안: “자전거를 탈 때 우리는 페달(초점)에 집중하지만 균형 감각(보조)에 기대고 있습니다. 둘을 떼어 문서로 옮길 수 있을까요?”</p><p>2번은 ‘전혀 불가능 vs 완전 가능’의 양자택일이 아니라는 점으로 다음 장 연결.</p></aside>
+</section>
+
+<!-- ===================== 21 REFRAME ===================== -->
+<section class="slide reframe" data-ch="05 비판" data-cc="var(--plum)" aria-label="질문 바꾸기">
+  <div class="kicker rise">REFRAME THE QUESTION</div>
+  <div class="strike rise" style="--d:1">AI가 암묵지를 배울 수 있다 / 없다?</div>
+  <h2 class="h2 rise" style="--d:2;margin-top:8px">질문을 세 개로 쪼개면 보인다</h2>
+  <div class="qs">
+    <div class="qbox" data-step="1" style="background:var(--yellow)"><span class="p">Q1 · LAYER</span><div class="w">어느 층위가?</div><p>해리 콜린스의 3분류 — <b>관계적</b>(말할 수 있지만 안 한 것) · <b>체성적</b>(몸에 밴 것) · <b>집단적</b>(공동체에 있는 것)</p></div>
+    <div class="qbox" data-step="2" style="background:var(--sky)"><span class="p">Q2 · METHOD</span><div class="w">어떤 방식으로?</div><p>인터뷰 · 궤적 · 시범 · 센서 — 방식마다 옮겨지는 것과 사라지는 것이 다르다.</p></div>
+    <div class="qbox" data-step="3" style="background:var(--salmon)"><span class="p">Q3 · OWNERSHIP</span><div class="w">누구의 소유로?</div><p>숙련공·교사의 노하우가 데이터가 될 때 동의·보상·권한은 누가 설계하나.</p></div>
+  </div>
+  <div class="does" data-step="4">오늘날 ‘암묵지 캡처’ 제품이 실제로 하는 일 → <b>① 기록된 흔적의 재조합</b> · <b>② 시범·행동 모방</b> · <b>③ 인터뷰를 통한 부분적 언어화</b>. 셋 다 유용하지만, 폴라니 의미의 암묵지 ‘그 자체’는 아니다.</div>
+  <aside class="notes"><p>이 장이 발표의 논리적 결론입니다. 이후 교실 챕터는 이 세 질문을 교사에게 적용하는 것.</p><p>콜린스 3분류의 괄호 설명은 발표자 보충 설명입니다(원자료는 명칭만 제시).</p></aside>
+</section>
+
+<!-- ===================== 22 CH06 ===================== -->
+<section class="slide chapter inv" style="--c:var(--blue)" aria-label="챕터 6 교실">
+  <div class="bignum rise">06</div>
+  <div class="txt"><div class="kicker rise" style="--d:1">CHAPTER 06 — CLASSROOM</div><h2 class="rise" style="--d:2">교실</h2><p class="rise" style="--d:3">교사의 암묵지는 이 주제의 축소판이다.<br>확인된 연구는 ‘대체’보다 ‘보완’을 말한다.</p></div>
+  <div class="sw rise" style="--d:4">BLUE · TEACHER'S HAND</div>
+  <div class="m ambient bob" data-mascot="cream"></div>
+  <aside class="notes"><p>챕터 6 (약 8분). 이제 우리 이야기입니다.</p></aside>
+</section>
+
+<!-- ===================== 23 TEACHER TACIT ===================== -->
+<section class="slide" data-ch="06 교실" data-cc="var(--blue)" aria-label="교사의 암묵지">
+  <div class="kicker rise">THE TEACHER'S TACIT KNOWLEDGE</div>
+  <h2 class="h2 rise" style="--d:1">지도안은 누구나 구한다. <span class="hl">타이밍</span>은 못 구한다.</h2>
+  <div class="class">
+    <div class="desk rise" style="--d:2">
+      <div class="book"><b>EXPLICIT · 누구나 구함</b>교과서 · 지도안 · 성취기준 · 평가 기준표</div>
+      <div class="m ambient bob" data-mascot="ink"></div>
+      <span class="sticker pop" style="--d:4;left:330px;top:120px;background:var(--yellow)">표정으로 막힘 읽기</span>
+      <span class="sticker pop" style="--d:5;left:360px;top:270px;background:var(--sky)">질문 던질 타이밍</span>
+      <span class="sticker pop" style="--d:6;left:40px;top:410px;background:var(--salmon)">칭찬·지적의 수위</span>
+      <span class="sticker pop" style="--d:7;left:300px;top:470px;background:#bfe5c8">학급 분위기 전환</span>
+    </div>
+    <div class="res">
+      <div class="rcard" data-step="1" style="background:var(--paper)"><h3>교사–AI 보완성</h3><span class="chip v-res">연구</span><p>Aaviksoo &amp; Tammets: 교사의 교육적 추론·맥락 인식·윤리적 판단이 AI 산출물을 적응·제약한다. 보완성은 교사가 AI를 <b>비판적으로 조절할 때</b> 더 분명. Kramer 외도 ‘대체 서사’를 넘어서자고 제안.</p></div>
+      <div class="rcard" data-step="2" style="background:var(--paper)"><h3>프롬프팅 = 성찰적 표출화</h3><span class="chip v-res">이론적 가설</span><p>MDPI Electronics(2026): 효과적인 프롬프팅은 <b>교육적 사고를 밖으로 꺼내는 행위</b>. 저자 스스로 실증 검증이 필요하다고 명시.</p></div>
+      <div class="rcard" data-step="3" style="background:var(--paper)"><h3>교실은 ‘암묵적 지혜’가 생기는 곳</h3><span class="chip v-res">연구 · 45세션</span><p>Nong(2025): AI가 명시지 전달을 효율화할수록 지식 파편화도 커졌다. 교사 역할은 전달자 → <b>지혜 촉진자</b>. ‘전문가 맹점’ 때문에 베테랑은 자기 노하우를 설명하기 어렵다.</p></div>
+    </div>
+  </div>
+  <aside class="notes"><p>청중에게: “여러분이 신규 때 몰랐는데 지금은 ‘딱 보면 아는’ 것 하나만 떠올려 보세요.”</p><p>전문가 맹점(expert blindness): Benjamin Keep 영상 참고 — 전문가는 지식을 덩어리로 자동 처리해 초보자의 빈틈을 못 본다.</p></aside>
+</section>
+
+<!-- ===================== 24 PRACTICE ===================== -->
+<section class="slide" data-ch="06 교실" data-cc="var(--blue)" aria-label="실천 포인트">
+  <div class="kicker rise">WHAT WE CAN DO</div>
+  <h2 class="h2 rise" style="--d:1">연구 범위 안에서 나오는 실천 포인트 셋</h2>
+  <div class="prac">
+    <div class="pr" data-step="1"><span class="n" style="color:var(--green)">01</span><div><h3>‘이관’보다 <span class="hl">언어화 루틴</span></h3><p>교사의 암묵지를 AI에 옮기려 하기보다, 수업 후 회고 기록·프롬프트-수정 이력을 쌓는 것이 현실적인 표출화.</p></div></div>
+    <div class="pr" data-step="2"><span class="n" style="color:var(--orange)">02</span><div><h3>‘교사의 손’을 남겨 두기</h3><p>AI가 만든 수업안을 맥락에 맞게 <b>고치는 행위 자체</b>가 암묵지가 작동하는 지점. 자동화에서 이 손을 빼면 전문성이 소실될 수 있다.</p></div></div>
+    <div class="pr" data-step="3"><span class="n" style="color:var(--blue)">03</span><div><h3>사람 인프라 — 함께 겪고, 꺼내기</h3><p>교사 간 사례·시행착오·학생 반응 공유 연수는 SECI의 공동화·표출화에 해당 (예: 경기 CLASS LAB). <span class="chip v-unk">‘암묵지’와 직접 연결한 공식 설명은 미확인</span></p></div></div>
+  </div>
+  <div class="ask" data-step="4"><span class="tag-ask">ASK · 3분 토론</span><p>내 수업에서 ‘딱 보면 아는’ 순간은 언제인가?<br>그것을 AI에게 <span style="color:var(--yellow)">말하지 않고 보여줄</span> 방법이 있을까?</p></div>
+  <aside class="notes"><p>토론 진행: 짝과 2분 → 전체 공유 1분. 나온 답을 p.13의 네 칸(인터뷰·궤적·시범·센서)에 분류해 보면 앞 내용과 연결됩니다.</p></aside>
+</section>
+
+<!-- ===================== 25 VIDEOS ===================== -->
+<section class="slide" data-ch="07 정리" data-cc="var(--sage)" aria-label="영상 가이드">
+  <div class="kicker rise">WATCH LIST · 직접 열어 확인한 영상 (2026-11-26 기준)</div>
+  <h2 class="h2 rise" style="--d:1">수업에서 틀기 좋은 순서</h2>
+  <div class="route">
+    <svg class="path" viewBox="0 0 1408 600" aria-hidden="true"><path d="M200 290 C 200 420, 380 440, 500 430 L 900 430 C 960 430, 960 300, 1008 300" fill="none" stroke="#23231f" stroke-width="3" stroke-dasharray="4 12" stroke-linecap="round"/></svg>
+    <div class="walker ambient walk" style="position:absolute;left:0;top:0;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--orange);border:3px solid var(--ink);offset-path:path('M200 290 C 200 420, 380 440, 500 430 L 900 430 C 960 430, 960 300, 1008 300')"></div>
+    <div class="stop" data-step="1" style="left:0;top:0"><span class="lv">STEP 1 · 입문 (12분)</span>
+      <a class="yt" style="--c:var(--sky)" href="https://www.youtube.com/watch?v=YBYhgidSZ2g" target="_blank" rel="noopener"><span class="th"><i>12:04</i></span><span><b>The Invisible Knowledge Problem</b><span>Vicky Zhao · 영어 대중 해설</span></span></a>
+      <a class="yt" style="--c:var(--green)" href="https://www.youtube.com/watch?v=jRc67mW1LKI" target="_blank" rel="noopener"><span class="th"><i>12:02</i></span><span><b>Tacit Knowledge — 전문가 맹점</b><span>Benjamin Keep · 교육과 직결</span></span></a></div>
+    <div class="stop" data-step="2" style="left:500px;top:300px"><span class="lv">STEP 2 · 한국 맥락</span>
+      <a class="yt" style="--c:var(--orange)" href="https://www.youtube.com/watch?v=MCf2UJkvPCo" target="_blank" rel="noopener"><span class="th"><i>31:31</i></span><span><b>피지컬AI 마지막 단추는 암묵지다</b><span>티타임즈TV · 김준하 GIST 교수</span></span></a>
+      <a class="yt" style="--c:var(--yellow)" href="https://www.youtube.com/watch?v=fPH4-YXirsc" target="_blank" rel="noopener"><span class="th"><i>EO</i></span><span><b>AX 고민하는 대표님들 — 채널톡 CAIO</b><span>EO Korea · 상담 데이터 암묵지화</span></span></a></div>
+    <div class="stop" data-step="3" style="left:1008px;top:150px"><span class="lv">STEP 3 · 비판적 읽기</span>
+      <a class="yt" style="--c:var(--plum)" href="https://www.youtube.com/watch?v=BmyB-4S9QuY" target="_blank" rel="noopener"><span class="th"><i>33:43</i></span><span><b>Avenging Polanyi's Revenge</b><span>Kambhampati · ICML 2023 기조강연</span></span></a>
+      <a class="yt" style="--c:var(--salmon)" href="https://www.youtube.com/watch?v=L1zjQBImx44" target="_blank" rel="noopener"><span class="th"><i>57:12</i></span><span><b>Polanyi vs. Planning</b><span>Kambhampati · ICAPS 2020</span></span></a>
+      <a class="yt" style="--c:var(--sage)" href="https://www.youtube.com/watch?v=L2OPYYthw4c" target="_blank" rel="noopener"><span class="th"><i>1:20:31</i></span><span><b>Satya Nadella · Cheeky Pint</b><span>31:35 ‘Data sovereignty’ 부근</span></span></a></div>
+  </div>
+  <aside class="notes"><p>카드를 클릭하면 새 탭으로 유튜브가 열립니다(인터넷 필요).</p><p>권장 구성: 입문 12분 → 한국 맥락 → 비판적 읽기로 균형. ‘암묵지 AI’ 숏폼·릴스는 검증 부족으로 제외했습니다.</p></aside>
+</section>
+
+<!-- ===================== 26 UNVERIFIED ===================== -->
+<section class="slide" data-ch="07 정리" data-cc="var(--salmon)" aria-label="미확인 목록" style="background:var(--sage)">
+  <div class="kicker rise">BEFORE YOU QUOTE</div>
+  <h2 class="h2 rise" style="--d:1">확인되지 않은 것을 확인된 것처럼 쓰지 않기</h2>
+  <div class="unv">
+    <div class="uv rise" style="--d:2"><span class="bx">?</span><div><h3>“tacit knowledge is the next frontier”</h3><p>정확한 원문 문구의 원출처를 찾지 못함. 취지가 같은 발언만 확인.</p></div></div>
+    <div class="uv rise" style="--d:3"><span class="bx">?</span><div><h3>“암묵지 AI = 과장된 마케팅 용어” 기사</h3><p>특정 매체·필자를 지목할 수 있는 직접 비판 기사는 미확인.</p></div></div>
+    <div class="uv rise" style="--d:4"><span class="bx">?</span><div><h3>업체 성과의 독립 검증</h3><p>TUNA 85%, Workait·Blockbrain 수치·투자 정보는 주관사 발표·제3자 프로필 기반.</p></div></div>
+    <div class="uv rise" style="--d:5"><span class="bx">?</span><div><h3>RLHF 원논문 직접 확인</h3><p>InstructGPT 등 원논문 대신 해설 출처로 갈음.</p></div></div>
+    <div class="uv rise" style="--d:6"><span class="bx">?</span><div><h3>MIT ‘생성형 AI 투자 95% 무성과’</h3><p>국내 2차 글을 통한 인용으로만 확인, 원보고서 대조 안 됨.</p></div></div>
+    <div class="uv rise" style="--d:7"><span class="bx">?</span><div><h3>한국 교사의 암묵지 국내 연구</h3><p>이번 검색 범위에서 확인 못함 — 해외 연구와 연수 보도로 대체.</p></div></div>
+  </div>
+  <aside class="notes"><p>이 장 자체가 하나의 수업 모델입니다. “AI 시대의 정보 리터러시 = 모르는 것을 모른다고 표시하는 능력.”</p></aside>
+</section>
+
+<!-- ===================== 27 CLOSING ===================== -->
+<section class="slide dark closing" data-ch="ONE-LINE SUMMARY" data-cc="var(--yellow)" aria-label="마무리">
+  <div class="dotm ambient march rise" style="--d:3" data-mascot="dots"></div>
+  <p class="pre rise" style="--d:0">진짜 질문은 <s>“AI가 사람의 감을 복사할 수 있는가”</s>가 아니라,</p>
+  <p class="main rise" style="--d:1"><em>어느 층위</em>의 지식이,<br><em class="o">어떤 방식</em>으로,<br><em class="s">누구의 소유</em>로 옮겨지는가.</p>
+  <div class="end rise" style="--d:4"><span>THANK YOU</span><span>Q&amp;A</span><span style="opacity:.6">원자료: 암묵지 AI 조사 정리 (2026-11-26)</span></div>
+  <aside class="notes"><p>마무리 멘트: “오늘 들은 내용 중 ‘딱 보면 아는’ 것이 하나라도 생겼다면, 그게 바로 암묵지입니다.”</p><p>질의응답 중 특정 챕터로 가려면 M → 타일 클릭.</p></aside>
+</section>
+
+</main></div>
+
+<nav class="ctrl" aria-label="발표 조작">
+  <button id="bPrev" aria-label="이전">◀</button>
+  <span class="count" id="count">01 / 27</span>
+  <button id="bNext" aria-label="다음">▶</button>
+  <button id="bMap" aria-label="목차">≡</button>
+  <button id="bNotes" aria-pressed="false" aria-label="발표자 노트">노트</button>
+  <button id="bMotion" aria-pressed="false" aria-label="모션 정지">Ⅱ 모션</button>
+  <button id="bFull" aria-label="전체화면">⛶</button>
+</nav>
+<div class="progress" id="progress"></div>
+<div class="notes-panel" id="notesPanel" role="region" aria-label="발표자 노트"><h4>PRESENTER NOTES</h4><div class="body"></div></div>
+<script src="deck.js"></script>
+</body>
+</html>
